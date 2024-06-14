@@ -7,7 +7,7 @@ const CountryCard = ({name, flagimg, flagAltTxt}) => {
             justifyContent: "center",
             alignContent: "center",
             flexDirection: "column",
-            padding: "10px",
+            padding: "20px",
             margin: "10px",
             border: "1px solid black",
             borderRadius: "8px",
@@ -16,7 +16,7 @@ const CountryCard = ({name, flagimg, flagAltTxt}) => {
         }}>
             <img src={flagimg}
             alt={flagAltTxt}
-            style={{width:"100px", height:"100px" }}
+            style={{width:"100%", height:"100px", }}
             />
             <h2>{name}</h2>
         </div>
@@ -31,7 +31,7 @@ function Countries() {
         fetch(API_URL)
         .then((res) => res.json())
         .then((data) => setCountries(data))
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => console.error("Error fetching data:", error));
     }, []);
     // console.log(countries.map((country) => (<CountryCard name={country.name} flagimg={country.flag} flagAltTxt={country.abbr}/>)));
 
