@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CountryCard = (name, flagimg, flagAltTxt) => {
+const CountryCard = ({name, flagimg, flagAltTxt}) => {
     return (
         <div style={{
             display: "flex",
@@ -16,7 +16,7 @@ const CountryCard = (name, flagimg, flagAltTxt) => {
         }}>
             <img src={flagimg}
             alt={flagAltTxt}
-            style={{width:"100px", height:"100px"}}
+            style={{width:"100px", height:"100px" }}
             />
             <h2>{name}</h2>
         </div>
@@ -33,7 +33,7 @@ function Countries() {
         .then((data) => setCountries(data))
         .catch((error) => console.error("Error:", error));
     }, []);
-    console.log(countries.map((country) => (<CountryCard name={country.name} flagimg={country.flag} flagAltTxt={country.abbr}/>)));
+    // console.log(countries.map((country) => (<CountryCard name={country.name} flagimg={country.flag} flagAltTxt={country.abbr}/>)));
 
     return (<div style={{
         display:"flex",
@@ -42,7 +42,7 @@ function Countries() {
         height:"100vh",
         justifyContent:"center",
     }}>
-    {/* {countries.map((country) => (<CountryCard name={country.name} flagimg={country.flag} flagAltTxt={country.abbr}/>))} */}
+    {countries.map((country) => (<CountryCard name={country.name} flagimg={country.flag} flagAltTxt={country.abbr}/>))}
     </div>
 );
 
